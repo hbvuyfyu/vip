@@ -34,3 +34,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# android
+/android/.gradle
+/android/local.properties
+/android/**/build/
+/android/**/.cxx/
+/android/captures/
+/android/.idea/
+/android/**/*.iml
+*.apk
+*.aab
+*.keystore
+*.jks

@@ -159,6 +159,31 @@ This project is ready to deploy on:
 
 Set the environment variables in your hosting platform's dashboard.
 
+## Android APK
+
+The `android/` folder contains a native Android WebView app that wraps the web platform. GitHub Actions builds an APK on every push to `main`.
+
+### Building the APK locally
+
+```bash
+cd android
+./gradlew assembleDebug
+```
+
+The APK will be at `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+### Downloading the APK from GitHub Actions
+
+1. Go to the repository on GitHub
+2. Click the "Actions" tab
+3. Select the latest "Build Android APK" run
+4. Download the "King-APK" artifact at the bottom of the page
+5. Unzip and install `app-debug.apk` on your Android device
+
+### Configuring the App URL
+
+The WebView loads the deployed web app. To point it at your own deployment, edit `HOME_URL` in `android/app/src/main/java/com/king/app/MainActivity.kt`.
+
 ## License
 
 MIT
