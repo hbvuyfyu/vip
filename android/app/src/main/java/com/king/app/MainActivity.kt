@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var retryButton: Button
 
     private var fileChooserCallback: ValueCallback<Array<Uri>>? = null
-    private lateinit var fileChooserLauncher: ActivityResultLauncher<Array<Uri>>
+    private lateinit var fileChooserLauncher: ActivityResultLauncher<Array<String>>
 
     companion object {
         private const val HOME_URL = "https://king-app.netlify.app"
