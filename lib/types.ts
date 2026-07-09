@@ -117,6 +117,15 @@ export interface Order {
   user?: Profile;
 }
 
+export interface BannerImage {
+  id: string;
+  banner_id: string;
+  image_url: string;
+  sort_order: number;
+  is_active: boolean;
+  created_at: string;
+}
+
 export interface Banner {
   id: string;
   title: string;
@@ -129,37 +138,6 @@ export interface Banner {
   created_at: string;
   updated_at: string;
   images?: BannerImage[];
-}
-
-export interface BannerImage {
-  id: string;
-  banner_id: string;
-  image_url: string;
-  sort_order: number;
-  is_active: boolean;
-  created_at: string;
-}
-
-export interface HomepageSection {
-  id: string;
-  name: string;
-  type: string;
-  is_active: boolean;
-  sort_order: number;
-  config: Record<string, unknown>;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface AuditLog {
-  id: string;
-  actor_id: string | null;
-  action: string;
-  entity_type: string;
-  entity_id: string;
-  details: Record<string, unknown>;
-  created_at: string;
-  actor?: Profile;
 }
 
 export interface Settings {
@@ -185,25 +163,5 @@ export interface Settings {
       address: string;
       notes: string;
     }>;
-  };
-}
-
-export interface Database {
-  public: {
-    Tables: {
-      profiles: { Row: Profile; Insert: Partial<Profile>; Update: Partial<Profile> };
-      categories: { Row: Category; Insert: Partial<Category>; Update: Partial<Category> };
-      sub_buttons: { Row: SubButton; Insert: Partial<SubButton>; Update: Partial<SubButton> };
-      providers: { Row: Provider; Insert: Partial<Provider>; Update: Partial<Provider> };
-      services: { Row: Service; Insert: Partial<Service>; Update: Partial<Service> };
-      wallet_transactions: { Row: WalletTransaction; Insert: Partial<WalletTransaction>; Update: Partial<WalletTransaction> };
-      recharge_requests: { Row: RechargeRequest; Insert: Partial<RechargeRequest>; Update: Partial<RechargeRequest> };
-      orders: { Row: Order; Insert: Partial<Order>; Update: Partial<Order> };
-      banners: { Row: Banner; Insert: Partial<Banner>; Update: Partial<Banner> };
-      banner_images: { Row: BannerImage; Insert: Partial<BannerImage>; Update: Partial<BannerImage> };
-      homepage_sections: { Row: HomepageSection; Insert: Partial<HomepageSection>; Update: Partial<HomepageSection> };
-      audit_logs: { Row: AuditLog; Insert: Partial<AuditLog>; Update: Partial<AuditLog> };
-      settings: { Row: { key: string; value: Record<string, unknown>; updated_at: string; updated_by: string | null }; Insert: { key: string; value: Record<string, unknown>; updated_by?: string }; Update: { value?: Record<string, unknown>; updated_by?: string } };
-    };
   };
 }
